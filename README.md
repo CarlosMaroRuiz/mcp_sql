@@ -46,6 +46,7 @@ mcp_sql/
 ├── main.py                     # Punto de entrada principal
 ├── client_test.py              # Cliente de prueba
 ├── requirements.txt            # Dependencias del proyecto
+├── pyproject.toml              # Configuración del proyecto
 └── README.md                   # Este archivo
 ```
 
@@ -55,6 +56,7 @@ mcp_sql/
   <tr>
     <td>✅ Python 3.13+</td>
     <td>✅ MySQL Server</td>
+    <td>✅ uv (instalador y gestor de entornos)</td>
   </tr>
 </table>
 
@@ -73,25 +75,38 @@ python-dotenv>=1.1.1
 <summary><b>Paso 1: Clonar el repositorio</b></summary>
 
 ```bash
-git clone https://github.com/tuusuario/mcp_sql.git
+git clone https://github.com/CarlosMaroRuiz/mcp_sql.git
 cd mcp_sql
 ```
 </details>
 
 <details open>
-<summary><b>Paso 2: Configurar entorno virtual</b></summary>
+<summary><b>Paso 2: Instalar uv (si no lo tienes)</b></summary>
 
 ```bash
-python -m venv venv
-source venv/bin/activate  # En Windows: venv\Scripts\activate
+# En Windows con PowerShell
+iwr https://astral.sh/uv/install.ps1 -useb | iex
+
+# En Linux/macOS
+curl -LsSf https://astral.sh/uv/install.sh | sh
 ```
 </details>
 
 <details open>
-<summary><b>Paso 3: Instalar dependencias</b></summary>
+<summary><b>Paso 3: Crear entorno y instalar dependencias con uv</b></summary>
 
 ```bash
-pip install -r requirements.txt
+# Crear entorno virtual y activarlo
+uv venv
+
+# En Windows
+.venv\Scripts\activate
+
+# En Linux/macOS
+source .venv/bin/activate
+
+# Instalar dependencias desde pyproject.toml
+uv pip install -e .
 ```
 </details>
 
@@ -116,13 +131,15 @@ DATABASE_MYSQL=nombre_base_datos
 uv run main.py
 ```
 
-Esto iniciará el servidor en `http://localhost:8000/mcp` usando transporte HTTP streamable.
+Esto ejecutará el script principal utilizando el entorno gestionado por uv, iniciando el servidor en `http://localhost:8000/mcp` con transporte HTTP streamable.
 
 ### Ejecutar el Cliente de Prueba
 
 ```bash
 uv run client_test.py
 ```
+
+Con este comando, uv ejecuta el script de prueba utilizando el entorno Python correcto y todas las dependencias instaladas.
 
 ## 🔍 Herramientas Disponibles
 
