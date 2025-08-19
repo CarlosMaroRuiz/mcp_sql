@@ -2,14 +2,13 @@
 
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.13+-blue.svg?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.11+-blue.svg?style=for-the-badge&logo=python&logoColor=white)
 ![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 ![FastMCP](https://img.shields.io/badge/FastMCP-2.11.3+-orange.svg?style=for-the-badge)
 
 </div>
 
-<p align="center">Servidor MCP para interactuar con bases de datos MySQL a través de LLMs con capacidades  de consulta, análisis y aprendizaje.</p>
-
+<p align="center">Servidor MCP para interactuar con bases de datos MySQL a través de LLMs con capacidades avanzadas de consulta, análisis y aprendizaje.</p>
 
 
 ## 🚀 Características Principales
@@ -52,7 +51,7 @@ mcp_sql/
 
 <table>
   <tr>
-    <td>✅ Python 3.13+</td>
+    <td>✅ Python 3.11+</td>
     <td>✅ MySQL Server</td>
     <td>✅ uv (instalador y gestor de entornos)</td>
   </tr>
@@ -227,9 +226,3 @@ result = await agent.run("""
     que tienen relación con la tabla 'clientes'.
 """)
 ```
-
----
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Powered%20by-FastMCP-orange?style=flat-square" alt="Powered by FastMCP">
-</p>
