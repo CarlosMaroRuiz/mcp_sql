@@ -8,8 +8,11 @@
 
 </div>
 
-<p align="center">Servidor MCP para interactuar con bases de datos MySQL a través de LLMs con capacidades de consulta, análisis y aprendizaje.</p>
+<p align="center">Servidor MCP para interactuar con bases de datos MySQL a través de LLMs con capacidades avanzadas de consulta, análisis y aprendizaje.</p>
 
+<div align="center">
+  <img src="https://raw.githubusercontent.com/jlowin/fastmcp/main/docs/docs/assets/fastmcp-hero-lockup.png" alt="FastMCP Logo" width="400">
+</div>
 
 ## 🚀 Características Principales
 
@@ -110,7 +113,7 @@ DATABASE_MYSQL=nombre_base_datos
 ### Iniciar el Servidor MCP
 
 ```bash
-python main.py
+uv run main.py
 ```
 
 Esto iniciará el servidor en `http://localhost:8000/mcp` usando transporte HTTP streamable.
@@ -118,7 +121,7 @@ Esto iniciará el servidor en `http://localhost:8000/mcp` usando transporte HTTP
 ### Ejecutar el Cliente de Prueba
 
 ```bash
-python client_test.py
+uv run client_test.py
 ```
 
 ## 🔍 Herramientas Disponibles
