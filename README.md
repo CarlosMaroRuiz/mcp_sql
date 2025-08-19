@@ -8,11 +8,9 @@
 
 </div>
 
-<p align="center">Servidor MCP para interactuar con bases de datos MySQL a través de LLMs con capacidades avanzadas de consulta, análisis y aprendizaje.</p>
+<p align="center">Servidor MCP para interactuar con bases de datos MySQL a través de LLMs con capacidades  de consulta, análisis y aprendizaje.</p>
 
-<div align="center">
-  <img src="https://raw.githubusercontent.com/jlowin/fastmcp/main/docs/docs/assets/fastmcp-hero-lockup.png" alt="FastMCP Logo" width="400">
-</div>
+
 
 ## 🚀 Características Principales
 
