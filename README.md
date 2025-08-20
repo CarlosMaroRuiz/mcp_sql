@@ -8,8 +8,36 @@
 
 </div>
 
-<p align="center">Servidor MCP para interactuar con bases de datos MySQL a través de LLMs con capacidades avanzadas de consulta, análisis y aprendizaje.</p>
+<p align="center">Servidor MCP para interactuar con bases de datos MySQL a través de LLMs con capacidades  de consulta, análisis y aprendizaje.</p>
 
+
+## 🌟 ¿Qué es MCP SQL?
+
+🚀 `mcp_sql` conecta tu base de datos MySQL con un LLM a través del estándar MCP. Esto permite que una IA ejecute consultas seguras, analice tu esquema y aprenda de tus queries pasadas para sugerir nuevas.
+
+A diferencia de conectarse directamente con un driver MySQL, `mcp_sql` ofrece:
+- 🔒 **Capa de abstracción segura** entre tus datos y el LLM
+- 📊 **Análisis automático de esquemas** sin escribir queries complejas
+- 🧠 **Sistema de aprendizaje** que mejora con cada consulta
+- ⏱️ **Métricas de rendimiento** para optimizar tus bases de datos
+- 💡 **Sugerencias inteligentes** basadas en consultas exitosas previas
+
+## 🔄 Arquitectura
+
+<div align="center">
+
+```
+LLM  →  MCP Server (mcp_sql)  →  MySQL  
+                ↘ Aprendizaje (notas, métricas, sugerencias)
+```
+
+</div>
+
+El flujo de trabajo es simple pero potente:
+1. El LLM envía una solicitud a través del protocolo MCP
+2. El servidor MCP SQL procesa la solicitud y la convierte en operaciones MySQL seguras
+3. Los resultados son retornados al LLM en un formato optimizado
+4. Cada interacción alimenta el sistema de aprendizaje para mejorar futuras consultas
 
 ## 🚀 Características Principales
 
@@ -226,3 +254,4 @@ result = await agent.run("""
     que tienen relación con la tabla 'clientes'.
 """)
 ```
+
