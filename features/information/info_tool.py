@@ -46,5 +46,4 @@ class InfoTool(BaseTool):
             tags={"database", "schema", "mysql", "metadata", "analysis", "documentation"},
         )
         def get_database_schema_info():
-
             return get_information()
