@@ -7,7 +7,7 @@ load_dotenv()
 
 # Inicializar el servidor y el agente
 server = MCPServerStreamableHTTP(url='http://localhost:8000/mcp')
-agent = Agent('deepseek:deepseek-chat', toolsets=[server])
+agent = Agent('google-gla:gemini-2.5-pro', toolsets=[server],system_prompt="")
 
 async def main():
     

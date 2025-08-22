@@ -8,21 +8,20 @@
 
 </div>
 
-<p align="center">Servidor MCP para interactuar con bases de datos MySQL a través de LLMs con capacidades  de consulta, análisis y aprendizaje.</p>
+<p align="center">Servidor MCP para interactuar con bases de datos MySQL a través de LLMs con capacidades de consulta, análisis y aprendizaje.</p>
 
+## ¿Qué es MCP SQL?
 
-## 🌟 ¿Qué es MCP SQL?
-
-🚀 `mcp_sql` conecta tu base de datos MySQL con un LLM a través del estándar MCP. Esto permite que una IA ejecute consultas seguras, analice tu esquema y aprenda de tus queries pasadas para sugerir nuevas.
+`mcp_sql` conecta tu base de datos MySQL con un LLM a través del estándar MCP. Esto permite que una IA ejecute consultas seguras, analice tu esquema y aprenda de tus queries pasadas para sugerir nuevas.
 
 A diferencia de conectarse directamente con un driver MySQL, `mcp_sql` ofrece:
-- 🔒 **Capa de abstracción segura** entre tus datos y el LLM
-- 📊 **Análisis automático de esquemas** sin escribir queries complejas
-- 🧠 **Sistema de aprendizaje** que mejora con cada consulta
-- ⏱️ **Métricas de rendimiento** para optimizar tus bases de datos
-- 💡 **Sugerencias inteligentes** basadas en consultas exitosas previas
+- **Capa de abstracción segura** entre tus datos y el LLM
+- **Análisis automático de esquemas** sin escribir queries complejas
+- **Sistema de aprendizaje** que mejora con cada consulta
+- **Métricas de rendimiento** para optimizar tus bases de datos
+- **Sugerencias inteligentes** basadas en consultas exitosas previas
 
-## 🔄 Arquitectura
+## Arquitectura
 
 <div align="center">
 
@@ -39,15 +38,15 @@ El flujo de trabajo es simple pero potente:
 3. Los resultados son retornados al LLM en un formato optimizado
 4. Cada interacción alimenta el sistema de aprendizaje para mejorar futuras consultas
 
-## 🚀 Características Principales
+## Características Principales
 
-- ⚡ **Ejecución de Consultas SQL**: Operaciones CRUD completas con métricas de rendimiento
-- 📊 **Análisis de Esquemas**: Información detallada sobre la estructura de bases de datos
-- 🧠 **Sistema de Aprendizaje**: Almacenamiento y recuperación de experiencias con consultas SQL
-- ⏱️ **Métricas de Rendimiento**: Seguimiento preciso de tiempos de ejecución
-- 💡 **Sugerencias Inteligentes**: Recomendaciones basadas en consultas previas exitosas
+- **Ejecución de Consultas SQL**: Operaciones CRUD completas con métricas de rendimiento
+- **Análisis de Esquemas**: Información detallada sobre la estructura de bases de datos
+- **Sistema de Aprendizaje**: Almacenamiento y recuperación de experiencias con consultas SQL
+- **Métricas de Rendimiento**: Seguimiento preciso de tiempos de ejecución
+- **Sugerencias Inteligentes**: Recomendaciones basadas en consultas previas exitosas
 
-## 🧩 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 mcp_sql/
@@ -75,7 +74,7 @@ mcp_sql/
 └── README.md                   # Este archivo
 ```
 
-## 📋 Requisitos
+## Requisitos
 
 <table>
   <tr>
@@ -94,7 +93,7 @@ pydantic-ai>=0.7.3
 python-dotenv>=1.1.1
 ```
 
-## 🔧 Instalación
+## Instalación
 
 <details open>
 <summary><b>Paso 1: Clonar el repositorio</b></summary>
@@ -118,25 +117,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 </details>
 
 <details open>
-<summary><b>Paso 3: Crear entorno y instalar dependencias con uv</b></summary>
-
-```bash
-# Crear entorno virtual y activarlo
-uv venv
-
-# En Windows
-.venv\Scripts\activate
-
-# En Linux/macOS
-source .venv/bin/activate
-
-# Instalar dependencias desde pyproject.toml
-uv pip install -e .
-```
-</details>
-
-<details open>
-<summary><b>Paso 4: Configurar variables de entorno</b></summary>
+<summary><b>Paso 3: Configurar variables de entorno</b></summary>
 
 Crea un archivo `.env` con:
 
@@ -145,10 +126,13 @@ USER_BD=tuusuario
 PASSWORD_BD=tupassword
 HOST_DB=localhost
 DATABASE_MYSQL=nombre_base_datos
+GOOGLE_API_KEY=tu_clave_api
 ```
+
+Nota: Es necesario adquirir una clave API de Google para el proyecto. Esta clave se utiliza para ciertas funcionalidades del sistema.
 </details>
 
-## 🚀 Uso
+## Uso
 
 ### Iniciar el Servidor MCP
 
@@ -156,7 +140,7 @@ DATABASE_MYSQL=nombre_base_datos
 uv run main.py
 ```
 
-Esto ejecutará el script principal utilizando el entorno gestionado por uv, iniciando el servidor en `http://localhost:8000/mcp` con transporte HTTP streamable.
+Esto ejecutará el script principal utilizando el entorno gestionado por uv, iniciando el servidor en `http://localhost:8000/mcp` con transporte HTTP streamable. Las dependencias se instalarán automáticamente.
 
 ### Ejecutar el Cliente de Prueba
 
@@ -166,75 +150,27 @@ uv run client_test.py
 
 Con este comando, uv ejecuta el script de prueba utilizando el entorno Python correcto y todas las dependencias instaladas.
 
-## 🔍 Herramientas Disponibles
+## Herramientas Disponibles
 
 <details open>
 <summary><b>1. Herramienta de Consulta SQL</b></summary>
 
-La herramienta `execute_query_tool` permite ejecutar cualquier tipo de consulta SQL:
-
-```python
-result = await client.call_tool("execute_query_tool", {
-    "query": "SELECT * FROM clientes WHERE ciudad = 'Madrid'",
-    "params": ["Madrid"],
-    "fetch_all": True
-})
-```
-
-**Características:**
-- ✅ Soporte para operaciones CRUD completas
-- 🔒 Consultas con parámetros (prevención de inyección SQL)
-- ⏱️ Medición de tiempo de ejecución
-- 🔄 Control sobre formato de resultados
+La herramienta `execute_query_tool` permite ejecutar cualquier tipo de consulta SQL con soporte para operaciones CRUD completas, consultas con parámetros para prevención de inyección SQL, medición de tiempo de ejecución y control sobre formato de resultados.
 </details>
 
 <details open>
 <summary><b>2. Herramienta de Análisis de Esquema</b></summary>
 
-La herramienta `get_database_schema_info` proporciona información detallada sobre la estructura de la base de datos:
-
-```python
-schema_info = await client.call_tool("get_database_schema_info")
-```
-
-**Características:**
-- 📋 Lista completa de tablas
-- 🏗️ Estructura detallada de cada tabla
-- 🔑 Claves primarias y foráneas
-- 🔗 Relaciones entre tablas
-- 📊 Estadísticas de la base de datos
+La herramienta `get_database_schema_info` proporciona información detallada sobre la estructura de la base de datos, incluyendo lista completa de tablas, estructura detallada de cada tabla, claves primarias y foráneas, relaciones entre tablas y estadísticas de la base de datos.
 </details>
 
 <details open>
 <summary><b>3. Herramientas de Aprendizaje</b></summary>
 
-El sistema de aprendizaje incluye herramientas para registrar, recuperar y analizar experiencias con consultas SQL:
-
-```python
-# Guardar una nota de aprendizaje
-await client.call_tool("add_query_learning_note", {
-    "query": "SELECT * FROM clientes",
-    "execution_time": 0.023,
-    "rows_affected": 150,
-    "success": True,
-    "note": "Consulta básica para obtener todos los clientes",
-    "tags": ["select", "clientes", "básica"]
-})
-
-# Buscar notas previas
-results = await client.call_tool("search_query_learning_notes", {
-    "search_term": "clientes"
-})
-
-# Obtener sugerencias basadas en fragmentos de consulta
-suggestions = await client.call_tool("get_sql_query_suggestions", {
-    "query_fragment": "SELECT * FROM cli",
-    "context": "Buscando información de clientes"
-})
-```
+El sistema de aprendizaje incluye herramientas para registrar, recuperar y analizar experiencias con consultas SQL. Permite guardar notas de aprendizaje, buscar notas previas y obtener sugerencias basadas en fragmentos de consulta.
 </details>
 
-## 📚 Ejemplo de Integración con LLM
+## Ejemplo de Integración con LLM
 
 <div align="center">
   <img src="https://img.shields.io/badge/Compatible%20con-LLMs%20via%20MCP-blueviolet?style=for-the-badge" alt="Compatible con LLMs">
@@ -254,4 +190,3 @@ result = await agent.run("""
     que tienen relación con la tabla 'clientes'.
 """)
 ```
-
