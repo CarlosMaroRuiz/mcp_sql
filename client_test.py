@@ -6,13 +6,18 @@ import asyncio
 load_dotenv()
 
 # Inicializar el servidor y el agente
-server = MCPServerStreamableHTTP(url='http://localhost:8000/mcp')
-agent = Agent('google-gla:gemini-2.5-pro', toolsets=[server],system_prompt="")
+token_test = ""
+# en el caso que no vaya el token este tronara ya que el servidor mcp tiene seguridad
+server = MCPServerStreamableHTTP(
+    url='http://localhost:8000/mcp',
+    #para la seguridad
+    headers={"Authorization":"Bearer "+token_test})
+agent = Agent('google-gla:gemini-2.0-flash', toolsets=[server],system_prompt="")
 
 async def main():
     
     result = await agent.run("""
-    eliminame el cliente laura con id 2
+     que herramientas tienes disponibles y cual es su proposito?
     """)
     
     print(result.output)

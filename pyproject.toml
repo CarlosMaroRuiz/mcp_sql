@@ -8,5 +8,6 @@ dependencies = [
     "fastmcp>=2.11.3",
     "mysql-connector-python>=9.4.0",
     "pydantic-ai>=0.7.3",
+    "pyjwt>=2.10.1",
     "python-dotenv>=1.1.1",
 ]

@@ -8,6 +8,8 @@ class EnumServer:
         self.INSTRUCTIONS :str = "Por el momento no hay instrucciones"
         self.HOST_SERVER = os.getenv("HOST_SERVER")
         self.PORT_SERVER = os.getenv("PORT_SERVER")
+        self.SECRET_KEY = os.getenv("SECRET_KEY")
+        self.ALGORITHM = os.getenv("ALGORITHM")
     
 
 enum_server = EnumServer()

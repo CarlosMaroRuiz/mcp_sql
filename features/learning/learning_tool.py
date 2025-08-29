@@ -88,9 +88,15 @@ class LearningTool(BaseTool):
                 query_type=query_type
             )
         
-        @self.mcp.tool(
+        @self.mcp.resource(
+            uri="schema://learning/query_history/{limit}",
             name="get_query_learning_history",
             description="""
+            ADVERTENCIA: Antes de iniciar el proceso de query, tenga en cuenta que esta operación 
+            puede consumir recursos significativos y tardar desde segundos hasta minutos, según 
+            el tamaño y la carga de la base de datos. Se recomienda usar en momentos de baja 
+            demanda o con bases de datos de tamaño moderado.
+            
             Herramienta para recuperar el historial de aprendizaje sobre consultas SQL.
             
             Permite acceder al registro histórico de consultas y sus anotaciones asociadas,
@@ -127,7 +133,7 @@ class LearningTool(BaseTool):
             tags={"learning", "history", "mysql", "sql", "analysis"}
         )
         def get_query_learning_history(
-            limit: int = 50,
+            limit: int,
             offset: int = 0,
             query_type: str = None,
             success_only: bool = False
@@ -224,9 +230,15 @@ class LearningTool(BaseTool):
                 limit=limit
             )
         
-        @self.mcp.tool(
+        @self.mcp.resource(
+            uri="schema://learning/query_suggestions/{query_fragment}",
             name="get_query_suggestions",
             description="""
+            ADVERTENCIA: Antes de iniciar el proceso de query, tenga en cuenta que esta operación 
+            puede consumir recursos significativos y tardar desde segundos hasta minutos, según 
+            el tamaño y la carga de la base de datos. Se recomienda usar en momentos de baja 
+            demanda o con bases de datos de tamaño moderado.
+            
             Herramienta de sugerencias inteligentes basadas en experiencias SQL previas.
             
             Proporciona recomendaciones de consultas SQL basadas en fragmentos
