@@ -14,7 +14,7 @@
 ### **Notas adicionales**
 
 **Generación del token:**
-El archivo `gen_token.py` muestra un ejemplo de cómo generar un token siguiendo los puntos anteriores.
+El archivo `gen_token.py` muestra un ejemplo de cómo generar un token siguiendo los puntos anteriores
 
 **Envío en la cabecera HTTP:**
 Recuerda enviar siempre el token en la cabecera de la petición HTTP usando el esquema **Bearer Token**. La sintaxis es la siguiente:
